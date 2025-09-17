@@ -22,7 +22,9 @@ public class tamagotchi
 
     public void Teach(string word)
     {
-
+        Console.WriteLine($"{Name} learns: {word} ");
+        words.Add(word);
+        ReduceBoredom();
     }
 
     public void Tick()
@@ -42,7 +44,7 @@ public class tamagotchi
 
     public void PrintStats()
     {
-        Console.WriteLine($"hunger: {hunger}, boredom: {boredom}");
+        Console.WriteLine($"hunger: {hunger}, boredom: {boredom} Vocabulary: {words.Count} words");
     }
 
     public bool GetAlive()

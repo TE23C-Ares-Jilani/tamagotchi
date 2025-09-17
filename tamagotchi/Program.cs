@@ -7,7 +7,13 @@ while (x == 1)
 
     tami.PrintStats();
 
-    tami.Tick();
+    Console.WriteLine("Write a word.");
+
+    Console.Write("Word:");
+
+    string word = Console.ReadLine();
+
+    tami.Teach(word);
 
     tami.PrintStats();
 
