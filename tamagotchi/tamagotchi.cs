@@ -17,7 +17,7 @@ public class tamagotchi
 
     public void Hi()
     {
-
+        
     }
 
     public void Teach(string word)
