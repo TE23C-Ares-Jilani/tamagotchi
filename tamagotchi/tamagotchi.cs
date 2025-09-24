@@ -4,20 +4,27 @@ public class tamagotchi
 
     private int boredom;
 
-    private List<string> words = [];
+    private List<string> words = ["Harro",];
 
-    private bool isAlive;
+    private bool isAlive = true;
 
     public string Name;
 
     public void Feed()
     {
-        hunger--;
+        Console.WriteLine($"{Name} eats and becomes less hungry.");
+        hunger -= 2;
+        if (hunger < 0)
+        {
+            hunger = 0;
+        }
     }
 
     public void Hi()
     {
-        
+        int WordNum = Random.Shared.Next(words.Count);
+        Console.WriteLine($"{Name} Says: {words[WordNum]}");
+        ReduceBoredom();
     }
 
     public void Teach(string word)
@@ -29,8 +36,6 @@ public class tamagotchi
 
     public void Tick()
     {
-        isAlive = true;
-
         hunger++;
         boredom++;
 
@@ -38,13 +43,11 @@ public class tamagotchi
         {
             isAlive = false;
         }
-
-        Console.ReadLine();
     }
 
     public void PrintStats()
     {
-        Console.WriteLine($"hunger: {hunger}, boredom: {boredom} Vocabulary: {words.Count} words");
+        Console.WriteLine($"name: {Name} || hunger: {hunger} || boredom: {boredom} || Vocabulary: {words.Count} words");
     }
 
     public bool GetAlive()
@@ -56,7 +59,13 @@ public class tamagotchi
 
     private void ReduceBoredom()
     {
-        boredom--;
+        Console.WriteLine($" [{Name}] is now less bored!");
+
+        boredom -= 2;
+        if (boredom < 0)
+        {
+            boredom = 0;
+        }
     }
 
 }
